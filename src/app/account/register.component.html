@@ -1,5 +1,12 @@
-﻿<div class="card">
-    <h4 class="card-header">Register</h4>
+﻿    <div class="card">
+        <div class="row justify-content-center"><img
+            width="150"
+            alt="ESS Logo"
+            src="assets/img/esslogo.png"
+        />
+    </div>    
+
+    <h4 class="card-header">ESS Register</h4>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-group">
@@ -31,6 +38,27 @@
                     <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                 </div>
             </div>
+            <!--div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                    <div *ngIf="f.phone.errors.required">Role is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" formControlName="Role" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }" />
+                <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+                    <div *ngIf="f.role.errors.required">Role is required</div>
+                </div>
+            </div-->
             <div class="form-group">
                 <button [disabled]="loading" class="btn btn-primary">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>

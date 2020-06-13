@@ -1,10 +1,23 @@
-﻿<!-- nav -->
+﻿
+<!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-    <div class="navbar-nav">
+    
+    <div class="navbar-nav row">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <img
+            width="40"
+            alt="ESS Logo"
+            src="assets/img/esslogo.png"
+        /></a>
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        <a class="nav-item nav-link" routerLink="/users" *ngIf="user" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" routerLink="/models" routerLinkActive="active">Models</a>
+        <a class="nav-item nav-link" routerLink="/modelparameters" routerLinkActive="active">ModelParameters</a>
     </div>
+    <div class="navbar-nav ml-auto">
+        <div class="spacer"></div>
+        <a class="nav-item nav-link" (click)="logout()"><i class="fa fa-lock fa-2x"></i></a>
+    </div>    
 </nav>
 
 <!-- main app container -->
@@ -13,12 +26,10 @@
     <router-outlet></router-outlet>
 </div>
 
-<!-- credits -->
-<div class="text-center mt-4">
+<!-- footer -->
+<div class="footer text-left mt-4">
     <p>
-        <a href="https://jasonwatmore.com/post/2020/04/28/angular-9-user-registration-and-login-example-tutorial" target="_top">Angular 9 - User Registration and Login Example & Tutorial</a>
+        <a href="/" target="_top">&copy; copyrights 2020</a> | <a href="/" target="_top">ESS demo</a>
     </p>
-    <p>
-        <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
-    </p>
+   
 </div>

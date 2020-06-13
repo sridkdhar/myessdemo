@@ -1,6 +1,27 @@
-﻿<h1 *ngIf="isAddMode">Add User</h1>
-<h1 *ngIf="!isAddMode">Edit User</h1>
+﻿<h1 *ngIf="isAddMode">Add Model Parameter</h1>
+<h1 *ngIf="!isAddMode">Edit Model Parameter</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="password">
+                Password
+                <em *ngIf="!isAddMode">(Leave blank to keep the same password)</em>
+            </label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+        </div>
+    </div>
     <div class="form-row">
         <div class="form-group col">
             <label for="firstName">First Name</label>
@@ -19,21 +40,29 @@
     </div>
     <div class="form-row">
         <div class="form-group col">
-            <label for="username">Username</label>
-            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                <div *ngIf="f.username.errors.required">Username is required</div>
+            <label for="Email">Email</label>
+            <input type="text" formControlName="useremail" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.useremail.errors" class="invalid-feedback">
+                <div *ngIf="f.useremail.errors.required">Useremail is required</div>
             </div>
         </div>
         <div class="form-group col">
-            <label for="password">
-                Password
-                <em *ngIf="!isAddMode">(Leave blank to keep the same password)</em>
+            <label for="phone">
+                Phone
             </label>
-            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Password is required</div>
-                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        <input type="phone" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                <div *ngIf="f.phone.errors.required">Phone is required</div>
+                <div *ngIf="f.phone.errors.minlength">Phone must be at least 10 characters</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="role">
+                Role
+            </label>
+        <input type="role" formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }" />
+            <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+                <div *ngIf="f.role.errors.required">role is required</div>
             </div>
         </div>
     </div>

@@ -24,7 +24,7 @@ export class AddEditComponent implements OnInit {
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
         this.isAddMode = !this.id;
-        
+
         // password not required in edit mode
         const passwordValidators = [Validators.minLength(6)];
         if (this.isAddMode) {
@@ -35,7 +35,9 @@ export class AddEditComponent implements OnInit {
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             username: ['', Validators.required],
-            password: ['', passwordValidators]
+            password: ['', passwordValidators],
+            email: ['', Validators.required],
+            phone: ['', Validators.required],
         });
 
         if (!this.isAddMode) {
@@ -45,8 +47,11 @@ export class AddEditComponent implements OnInit {
                     this.f.firstName.setValue(x.firstName);
                     this.f.lastName.setValue(x.lastName);
                     this.f.username.setValue(x.username);
+                    this.f.email.setValue(x.email);
+                    this.f.phone.setValue(x.phone);
                 });
         }
+
     }
 
     // convenience getter for easy access to form fields
